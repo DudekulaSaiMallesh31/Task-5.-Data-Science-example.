@@ -156,6 +156,21 @@ lr_model.fit(X_train_tfidf, y_train)
 y_pred_lr = lr_model.predict(X_test_tfidf)
 print("Logistic Regression Model Accuracy:", accuracy_score(y_test, y_pred_lr))
 print(classification_report(y_test, y_pred_lr))
+# Naive Bayes with Bernoulli Distribution
+![image](https://github.com/user-attachments/assets/3472e385-0786-474a-b2d9-fa8230781f25)
+
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.metrics import accuracy_score, classification_report
+
+# Train Bernoulli Naive Bayes model
+bnb_model = BernoulliNB()
+bnb_model.fit(X_train_tfidf, y_train)
+
+# Predictions and evaluation
+y_pred_bnb = bnb_model.predict(X_test_tfidf)
+print("Bernoulli Naive Bayes Model Accuracy:", accuracy_score(y_test, y_pred_bnb))
+print(classification_report(y_test, y_pred_bnb))
+
 
 # Predictions and evaluation
 y_pred_rf = rf_model.predict(X_test_tfidf)
@@ -173,6 +188,8 @@ def predict_complaint(text, model):
     return category
 
 # Example prediction using Logistic Regression
+![image](https://github.com/user-attachments/assets/92c5f6eb-994a-4b3c-ba3d-b92652682445)
+
 example_text = "My credit report has incorrect information and they won't fix it."
 print("Predicted Category:", predict_complaint(example_text, lr_model))
 Results
