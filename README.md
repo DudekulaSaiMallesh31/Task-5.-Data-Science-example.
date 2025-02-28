@@ -156,29 +156,6 @@ lr_model.fit(X_train_tfidf, y_train)
 y_pred_lr = lr_model.predict(X_test_tfidf)
 print("Logistic Regression Model Accuracy:", accuracy_score(y_test, y_pred_lr))
 print(classification_report(y_test, y_pred_lr))
-Step 7: Train Support Vector Machine (SVM) Model
-python
-Copy
-Edit
-from sklearn.svm import SVC
-
-# Train Support Vector Machine model
-svm_model = SVC(kernel='linear')
-svm_model.fit(X_train_tfidf, y_train)
-
-# Predictions and evaluation
-y_pred_svm = svm_model.predict(X_test_tfidf)
-print("SVM Model Accuracy:", accuracy_score(y_test, y_pred_svm))
-print(classification_report(y_test, y_pred_svm))
-Step 8: Train Random Forest Model
-python
-Copy
-Edit
-from sklearn.ensemble import RandomForestClassifier
-
-# Train Random Forest model
-rf_model = RandomForestClassifier(n_estimators=100)
-rf_model.fit(X_train_tfidf, y_train)
 
 # Predictions and evaluation
 y_pred_rf = rf_model.predict(X_test_tfidf)
