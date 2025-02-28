@@ -20,6 +20,8 @@ Edit
 pip install pandas numpy scikit-learn matplotlib seaborn
 Project Structure
 Data Loading and Preprocessing:
+![image](https://github.com/user-attachments/assets/66809f96-f446-4d85-9672-7fda619a73c7)
+
 
 Loads the dataset of consumer complaints from a zip file.
 Selects relevant columns (Product, Consumer complaint narrative) and cleans the data.
@@ -59,6 +61,8 @@ df.columns = ["Category", "Complaint"]
 # Check the first few rows to ensure correct loading
 print(df.head())
 Step 2: Clean Data and Map Categories
+![image](https://github.com/user-attachments/assets/ee89d3a0-afc1-4f0d-8761-a7f35eff6136)
+
 python
 Copy
 Edit
@@ -88,6 +92,8 @@ df["Complaint"] = df["Complaint"].apply(clean_text)
 # Check the first few rows to ensure preprocessing is done correctly
 print(df.head())
 Step 3: Split Data into Train and Test
+![image](https://github.com/user-attachments/assets/cea3721a-63d2-4fa3-bdc2-4bc9017b8736)
+
 python
 Copy
 Edit
@@ -108,6 +114,8 @@ Edit
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Convert text to numerical features using TF-IDF
+![image](https://github.com/user-attachments/assets/009ee759-64fc-4732-8ae3-09ba42f9ce8f)
+
 vectorizer = TfidfVectorizer(stop_words="english", max_features=5000)
 X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
@@ -123,6 +131,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
 
 # Train Naïve Bayes model
+![image](https://github.com/user-attachments/assets/18d702a9-fb60-44f0-92c8-04616dbaba08)
+
 nb_model = MultinomialNB()
 nb_model.fit(X_train_tfidf, y_train)
 
@@ -137,6 +147,8 @@ Edit
 from sklearn.linear_model import LogisticRegression
 
 # Train Logistic Regression model
+![image](https://github.com/user-attachments/assets/9ae92ed9-826a-46e4-8103-b6062cbc0ade)
+
 lr_model = LogisticRegression(max_iter=1000)
 lr_model.fit(X_train_tfidf, y_train)
 
